@@ -1,0 +1,16 @@
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/ic_back" >
+
+    <target
+        android:name="f"
+        android:animation="@animator/r_1" />
+
+    <target
+        android:name="s"
+        android:animation="@animator/r_2" />
+
+    <target
+        android:name="t"
+        android:animation="@animator/r_3" />
+</animated-vector>
+    
