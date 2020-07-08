@@ -10,7 +10,7 @@
       android:pivotY="200">
 
     <path
-        android:fillColor="#0D1733"
+        android:fillColor="@color/colorVector"
         android:pathData="M100,90 v20 H300 v-20 z" />
 
   </group>
@@ -20,7 +20,7 @@
       android:pivotX="200"
       android:pivotY="200">
     <path
-        android:fillColor="#0D1733"
+        android:fillColor="@color/colorVector"
         android:pathData="M100,190 v20 H300 v-20 z" />
   </group>
 
@@ -29,7 +29,7 @@
       android:pivotX="200"
       android:pivotY="200">
     <path
-        android:fillColor="#0D1733"
+        android:fillColor="@color/colorVector"
         android:pathData="M100,290 v20 H300 v-20 z" />
 
   </group>
