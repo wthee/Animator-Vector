@@ -48,8 +48,7 @@ class MainActivity : AppCompatActivity() {
             iconRight.setOnClickListener {
 //                bottomSheetDialog.show()
 //                bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
-                BottomSheetDialogFragment().show(supportFragmentManager,"sheet")
-            }
+                }
         }
 
 

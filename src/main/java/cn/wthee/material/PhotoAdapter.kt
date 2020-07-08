@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.fragment.app.FragmentManager
 
 import cn.wthee.material.dummy.DummyContent.DummyItem
 
@@ -12,9 +13,9 @@ import cn.wthee.material.dummy.DummyContent.DummyItem
  * [RecyclerView.Adapter] that can display a [DummyItem].
  * TODO: Replace the implementation with code for your data type.
  */
-class MyPhotoRecyclerViewAdapter(
-        private val values: List<DummyItem>)
-    : RecyclerView.Adapter<MyPhotoRecyclerViewAdapter.ViewHolder>() {
+class PhotoAdapter(
+        private val values: List<DummyItem>, private val fm: FragmentManager)
+    : RecyclerView.Adapter<PhotoAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -24,8 +25,11 @@ class MyPhotoRecyclerViewAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = values[position]
-        holder.idView.text = item.id
         holder.contentView.text = item.content
+        holder.rootView.setOnLongClickListener {
+            BottomSheetDialogFragment().show(fm,"sheet")
+            return@setOnLongClickListener true
+        }
 
 
     }
@@ -33,9 +37,8 @@ class MyPhotoRecyclerViewAdapter(
     override fun getItemCount(): Int = values.size
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val idView: TextView = view.findViewById(R.id.item_number)
         val contentView: TextView = view.findViewById(R.id.content)
-
+        val rootView = view
         override fun toString(): String {
             return super.toString() + " '" + contentView.text + "'"
         }

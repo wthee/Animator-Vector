@@ -36,7 +36,7 @@ class PhotoFragment : Fragment() {
                     columnCount <= 1 -> LinearLayoutManager(context)
                     else -> GridLayoutManager(context, columnCount)
                 }
-                adapter = MyPhotoRecyclerViewAdapter(DummyContent.ITEMS)
+                adapter = PhotoAdapter(DummyContent.ITEMS, parentFragmentManager)
             }
         }
         return view

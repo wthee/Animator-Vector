@@ -1,28 +1,23 @@
 package cn.wthee.material
 
-import android.os.Bundle
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import android.app.Dialog
 import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.TextView
-import androidx.annotation.NonNull
-import cn.wthee.material.databinding.FragmentItemListDialogListDialogBinding
-import cn.wthee.material.databinding.LayoutBottomSheetBinding
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import kotlinx.android.synthetic.main.fragment_item_list_dialog_list_dialog.*
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 
 class BottomSheetDialogFragment : BottomSheetDialogFragment() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun setupDialog(dialog: Dialog, style: Int) {
+        val v: View = LayoutInflater.from(activity).inflate(R.layout.layout_bottom_sheet, null)
+        dialog.setContentView(v)
 
-        val binding = LayoutBottomSheetBinding.inflate(inflater, container, false)
-        return binding.root
+        val params = (v.parent as View).layoutParams as CoordinatorLayout.LayoutParams
+        val behavior = params.behavior as BottomSheetBehavior<View>
+        behavior.peekHeight = 700
+        behavior.state = BottomSheetBehavior.STATE_COLLAPSED
     }
-
 
 }
