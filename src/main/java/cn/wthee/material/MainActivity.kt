@@ -2,11 +2,11 @@ package cn.wthee.material
 
 import android.graphics.drawable.AnimatedVectorDrawable
 import android.os.Bundle
-import android.view.View
-import androidx.annotation.NonNull
+import android.os.Handler
+import android.os.Message
 import androidx.appcompat.app.AppCompatActivity
 import cn.wthee.material.databinding.ActivityMainBinding
-import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.tencent.bugly.Bugly
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -18,11 +18,15 @@ class MainActivity : AppCompatActivity() {
     private var isBack = false
     private lateinit var binding: ActivityMainBinding
 
+    companion object{
+
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        //TODO delte before git push
+        Bugly.init(applicationContext, PrivateData.APP_ID, false);
 
         //toolbar 设置
         binding.toolbar.apply {
@@ -50,7 +54,6 @@ class MainActivity : AppCompatActivity() {
 //                bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
                 }
         }
-
 
 
     }
